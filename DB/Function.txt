@@ -1,0 +1,12 @@
+CREATE FUNCTION get_cur_value( p_code in varchar2, p_date in date) RETURN number IS
+	v_val_s  varchar2(50)
+BEGIN
+	select c.value
+	  into v_val_s  
+	  from currency c
+	 where c.code = p_code
+	   and c.date = p_date;
+	return to_number(v_val_s);
+END get_cur_value;
+
+БД и таблица были созданы атоматически
